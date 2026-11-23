@@ -42,7 +42,7 @@ npm run preview
 
 ## Deploy
 
-O site está publicado na Netlify: [https://jocular-peony-a6ba21.netlify.app](https://jocular-peony-a6ba21.netlify.app).
+O site está publicado na Netlify: [https://cardapiaui.netlify.app]
 
 O deploy atual foi feito manualmente a partir da pasta `dist`; para publicar alterações futuras, execute `npm run build` e envie a pasta `dist` atualizada para o mesmo projeto na Netlify. O repositório ainda não está conectado para deploy automático.
 
