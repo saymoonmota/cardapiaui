@@ -13,8 +13,8 @@
   - `src/context/AppContext.tsx` — Provedor de estado global da aplicação
   - `src/context/useAppContext.ts` — Custom Hook de acesso ao contexto
   - `src/context/appContextInstance.ts` — Instância do contexto React
-- **De quem você recebe a palavra:** AJ Barros — *que acabou de mostrar `ContactForm` e `FeedbackMessage`*
-- **Para quem você passa a palavra:** Mario — *"O Marcos mostrou o coração do estado da aplicação. O Mario fecha apresentando como os dados visuais são renderizados e como toda a comunicação com o backend acontece."*
+- **De quem você recebe a palavra:** Antonio Jose Barros Silva Filho — *que acabou de mostrar `ContactForm` e `FeedbackMessage`*
+- **Para quem você passa a palavra:** Mayson de Tacio — *"O Marcos mostrou o coração do estado da aplicação. O Mayson de Tacio fecha apresentando como os dados visuais são renderizados e como toda a comunicação com o backend acontece."*
 
 ---
 
@@ -46,7 +46,7 @@
 > O `useAppContext` é nosso custom hook. Ele encapsula `useContext(AppContext)` e verifica se o valor é `null` — se for, lança um erro descritivo: 'useAppContext deve ser usado dentro de AppProvider'. Sem isso, o erro seria genérico e difícil de debugar."
 
 ### Fechamento e Passagem de Bastão
-> "Para resumir: o `Login.tsx` demonstra `useRef`, `useEffect` de montagem e `useNavigate`. O `AppContext` demonstra Context API, dois `useEffect` com lógicas distintas, `useCallback`, `useMemo`, persistência no `localStorage` e um custom hook. É a peça central que conecta todos os outros componentes do projeto. Passo a palavra para o Mario, que fecha a apresentação mostrando como os cards de pratos são renderizados e como toda a comunicação HTTP está estruturada."
+> "Para resumir: o `Login.tsx` demonstra `useRef`, `useEffect` de montagem e `useNavigate`. O `AppContext` demonstra Context API, dois `useEffect` com lógicas distintas, `useCallback`, `useMemo`, persistência no `localStorage` e um custom hook. É a peça central que conecta todos os outros componentes do projeto. Passo a palavra para o Mayson de Tacio, que fecha a apresentação mostrando como os cards de pratos são renderizados e como toda a comunicação HTTP está estruturada."
 
 ---
 

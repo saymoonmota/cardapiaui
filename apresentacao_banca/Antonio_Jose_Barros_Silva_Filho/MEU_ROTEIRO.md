@@ -1,4 +1,4 @@
-# 👤 Integrante 3 — AJ Barros
+# 👤 Integrante 3 — Antonio Jose Barros Silva Filho
 ## Formulários Assíncronos, Captura de Dados e Feedback Visual
 
 ---
@@ -19,7 +19,7 @@
 ## 🎤 Roteiro de Fala Completo
 
 ### Abertura / Transição
-> "Obrigado, Francisco. Meu nome é AJ Barros e vou dar continuidade mostrando como os dados inseridos pelo usuário são capturados, validados e enviados para a API. Enquanto o Francisco mostrou como os dados dos pratos são exibidos, eu vou mostrar o caminho inverso: como o usuário envia informações para o sistema."
+> "Obrigado, Francisco. Meu nome é Antonio Jose Barros Silva Filho e vou dar continuidade mostrando como os dados inseridos pelo usuário são capturados, validados e enviados para a API. Enquanto o Francisco mostrou como os dados dos pratos são exibidos, eu vou mostrar o caminho inverso: como o usuário envia informações para o sistema."
 
 ### Explicação do Componente 1 — `ContactForm.tsx`
 > "O `ContactForm` é o formulário da página de Contato, onde o usuário pode sugerir receitas caseiras. E ele é um bom exemplo de formulário controlado com comunicação assíncrona real.
@@ -28,7 +28,7 @@
 >
 > O coração do componente é a função `handleSubmit`. Ela é assíncrona — declarada com `async`. O primeiro passo é `event.preventDefault()`, que impede o comportamento padrão do formulário HTML, que seria recarregar a página. Depois, `setSubmitting(true)` — isso desabilita os três campos e o botão de envio. Por que isso é importante? Para evitar que o usuário clique duas vezes e mande a mesma mensagem duas vezes para o banco de dados. É uma proteção contra duplo envio.
 >
-> Depois de setar `submitting`, o código faz `await onSubmitSuggestion(name.trim(), email.trim(), suggestion.trim())`. Percebam que `onSubmitSuggestion` é uma prop do tipo `(name, email, suggestion) => Promise<void>` — uma função assíncrona. O `ContactForm` não sabe o que essa função faz — ele só chama e espera. É o pai, o `Contato.tsx`, que implementa essa função chamando `enviarContato()` do `services/api.ts`, que o Mario vai explicar.
+> Depois de setar `submitting`, o código faz `await onSubmitSuggestion(name.trim(), email.trim(), suggestion.trim())`. Percebam que `onSubmitSuggestion` é uma prop do tipo `(name, email, suggestion) => Promise<void>` — uma função assíncrona. O `ContactForm` não sabe o que essa função faz — ele só chama e espera. É o pai, o `Contato.tsx`, que implementa essa função chamando `enviarContato()` do `services/api.ts`, que o Mayson de Tacio vai explicar.
 >
 > Se o envio funcionar sem erros, os três campos são limpos: `setName('')`, `setEmail('')`, `setSuggestion('')`. Se der erro, o catch no `Contato.tsx` captura e exibe a mensagem. Em ambos os casos, o bloco `finally` garante que `setSubmitting(false)` sempre é chamado — o formulário volta ao estado normal independente do resultado. Esse padrão `try/await/finally` é a forma correta de lidar com loading states em JavaScript assíncrono."
 

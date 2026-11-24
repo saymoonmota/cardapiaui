@@ -11,7 +11,7 @@
   - `src/components/PratoModal.tsx` — Modal de detalhes do prato
   - `src/components/SearchFilter.tsx` — Busca e filtro por categoria
 - **De quem você recebe a palavra:** Saymoon Wanderson — *que acabou de mostrar a arquitetura geral, `App.tsx` e `Navbar`*
-- **Para quem você passa a palavra:** AJ Barros — *"Com as interfaces de exibição explicadas, o AJ vai mostrar como o usuário interage com o sistema — especialmente como os dados entram pela camada de formulários."*
+- **Para quem você passa a palavra:** Antonio Jose Barros Silva Filho — *"Com as interfaces de exibição explicadas, o AJ vai mostrar como o usuário interage com o sistema — especialmente como os dados entram pela camada de formulários."*
 
 ---
 
@@ -36,7 +36,7 @@
 >
 > Reparem: o `SearchFilter` não tem nenhum `useState` internamente. Zero estado próprio. Ele recebe quatro props: `query` e `categoria` como valores, e `onQueryChange` e `onCategoriaChange` como callbacks. Isso é o que chamamos de componente totalmente controlado pelo pai.
 >
-> O padrão *Lifting State Up* diz que quando dois componentes precisam dos mesmos dados, o estado deve subir para o ancestral comum. O `Cardapio.tsx` é dono dos estados `query` e `categoria`. O `SearchFilter` só exibe esses valores e notifica quando mudam. A lógica de filtragem real fica no `useMemo` dentro do `Cardapio.tsx` — o Mario vai explicar como o `PratoGrid` recebe esses dados filtrados.
+> O padrão *Lifting State Up* diz que quando dois componentes precisam dos mesmos dados, o estado deve subir para o ancestral comum. O `Cardapio.tsx` é dono dos estados `query` e `categoria`. O `SearchFilter` só exibe esses valores e notifica quando mudam. A lógica de filtragem real fica no `useMemo` dentro do `Cardapio.tsx` — o Mayson de Tacio vai explicar como o `PratoGrid` recebe esses dados filtrados.
 >
 > A prop `categoria` tem o tipo `CategoriaCardapio | 'Todos'` — um union type do TypeScript. Isso significa que o TypeScript não deixa passar nenhum valor inválido. Se alguém tentasse passar `categoria='Frutos do Mar'`, o compilador rejeitaria em tempo de build, antes de o código rodar em produção."
 

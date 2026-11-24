@@ -1,4 +1,4 @@
-# 👤 Integrante 5 — Mario
+# 👤 Integrante 5 — Mayson de Tacio
 ## Componentização Visual, Renderização de Dados e Camada de Serviço HTTP
 
 ---
@@ -20,7 +20,7 @@
 ## 🎤 Roteiro de Fala Completo
 
 ### Abertura / Transição
-> "Obrigado, Marcos. Meu nome é Mario e vou fechar a apresentação mostrando dois aspectos complementares: como os pratos são exibidos visualmente para o usuário, e como toda a comunicação entre o frontend e o backend é estruturada. Enquanto o Marcos mostrou onde os dados ficam guardados, eu vou mostrar como eles chegam da API e como são renderizados na tela."
+> "Obrigado, Marcos. Meu nome é Mayson de Tacio e vou fechar a apresentação mostrando dois aspectos complementares: como os pratos são exibidos visualmente para o usuário, e como toda a comunicação entre o frontend e o backend é estruturada. Enquanto o Marcos mostrou onde os dados ficam guardados, eu vou mostrar como eles chegam da API e como são renderizados na tela."
 
 ### Explicação do Componente 1 — `HeroBanner.tsx` e `PratoCard.tsx`
 > "Começo pelos componentes de exibição. O `HeroBanner` é o banner de destaque da página Home. Ele recebe uma prop chamada `pratoDestaque` com um `?` — o ponto de interrogação no TypeScript indica que a prop é opcional. Isso é necessário porque quando a página carrega, os pratos ainda estão sendo buscados da API — o `pratosLoading` está `true` e `pratos` é um array vazio, então `pratos[0]` seria `undefined`. O `HeroBanner` trata esse caso e exibe um placeholder enquanto os dados não chegaram.

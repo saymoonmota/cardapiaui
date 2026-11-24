@@ -76,9 +76,9 @@ Backend (Render) → responde com dados do SQLite
 |---|---|---|---|---|
 | 1 | **Saymoon Wanderson** | `App.tsx` + `main.tsx` | `Navbar.tsx` | Arquitetura SPA, Roteamento |
 | 2 | **Francisco Vitor** | `PratoModal.tsx` | `SearchFilter.tsx` | Acessibilidade, useMemo, Hooks |
-| 3 | **AJ Barros** | `ContactForm.tsx` | `FeedbackMessage.tsx` | Formulários async, Feedback visual |
+| 3 | **Antonio Jose Barros Silva Filho** | `ContactForm.tsx` | `FeedbackMessage.tsx` | Formulários async, Feedback visual |
 | 4 | **Marcos Aurelio** | `LoginForm.tsx` + `Login.tsx` | `AppContext.tsx` | Context API, Custom Hook, Estado global |
-| 5 | **Mario** | `HeroBanner.tsx` + `PratoCard.tsx` | `services/api.ts` | Componentização, HTTP, Tipagem |
+| 5 | **Mayson de Tacio** | `HeroBanner.tsx` + `PratoCard.tsx` | `services/api.ts` | Componentização, HTTP, Tipagem |
 
 ---
 
@@ -100,7 +100,7 @@ Backend (Render) → responde com dados do SQLite
 - [ ] Abrir `src/components/SearchFilter.tsx` — mostrar que não tem `useState`, props `query`, `categoria`, callbacks
 - [ ] No browser: digitar na busca, clicar nos filtros de categoria — mostrar resultado em tempo real
 
-### ▶️ INTEGRANTE 3 — AJ Barros (3 min)
+### ▶️ INTEGRANTE 3 — Antonio Jose Barros Silva Filho (3 min)
 - [ ] Abrir `src/components/ContactForm.tsx` — mostrar 4 `useState`, `handleSubmit` async, bloco `try/finally`, `submitting`
 - [ ] Abrir `src/components/FeedbackMessage.tsx` — mostrar `role="alert"/"status"`, union type `kind`
 - [ ] No browser: ir para /contato, preencher o formulário — mostrar botão "Enviando..." durante o envio
@@ -113,7 +113,7 @@ Backend (Render) → responde com dados do SQLite
 - [ ] Abrir `src/context/useAppContext.ts` — mostrar o custom hook com verificação de erro
 - [ ] No browser: fazer login como visitante, mostrar UserBadge na navbar
 
-### ▶️ INTEGRANTE 5 — Mario (3 min)
+### ▶️ INTEGRANTE 5 — Mayson de Tacio (3 min)
 - [ ] Abrir `src/components/PratoCard.tsx` — mostrar props, `aria-pressed`, `loading="lazy"`, callbacks
 - [ ] Abrir `src/components/HeroBanner.tsx` — mostrar prop opcional `pratoDestaque?`
 - [ ] Abrir `src/services/api.ts` — mostrar todas as funções, `import.meta.env.VITE_API_URL`, tratamento de erro
@@ -129,7 +129,7 @@ Backend (Render) → responde com dados do SQLite
 | Saymoon → Francisco | "Agora que a estrutura e navegação estão claras, o Francisco vai mostrar como os dados dos pratos são apresentados ao usuário nas interfaces principais." |
 | Francisco → AJ | "Com as interfaces de exibição explicadas, o AJ vai mostrar como o usuário interage com o sistema — especialmente como os dados entram pela camada de formulários." |
 | AJ → Marcos | "O AJ mostrou como os dados são capturados. O Marcos vai explicar onde esses dados são armazenados e como o estado é compartilhado em toda a aplicação." |
-| Marcos → Mario | "O Marcos mostrou o coração do estado da aplicação. O Mario fecha apresentando como os dados visuais são renderizados e como toda a comunicação com o backend acontece." |
+| Marcos → Mayson de Tacio | "O Marcos mostrou o coração do estado da aplicação. O Mayson de Tacio fecha apresentando como os dados visuais são renderizados e como toda a comunicação com o backend acontece." |
 
 ---
 
