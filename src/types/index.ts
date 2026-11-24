@@ -23,6 +23,20 @@ export interface User {
   email: string
 }
 
+export interface Admin {
+  id: number
+  email: string
+}
+
+export interface Contato {
+  id: number
+  nome: string
+  email: string
+  mensagem: string
+  lido: boolean
+  criadoEm: string
+}
+
 export interface TeamMember {
   nome: string
   componentes: [string, string]
@@ -78,13 +92,19 @@ export interface TeamMemberCardProps {
 }
 
 export interface ContactFormProps {
-  onSubmitSuggestion: (name: string, email: string, suggestion: string) => void
+  onSubmitSuggestion: (name: string, email: string, suggestion: string) => Promise<void>
 }
 
 export interface AppContextValue {
   user: User | null
+  admin: Admin | null
+  adminToken: string | null
   favorites: string[]
+  pratos: Prato[]
+  pratosLoading: boolean
+  pratosError: string
   setUser: (user: User | null) => void
+  setAdmin: (admin: Admin | null, token: string | null) => void
   toggleFavorite: (pratoId: string) => void
 }
 

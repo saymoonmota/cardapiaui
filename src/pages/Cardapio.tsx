@@ -1,11 +1,10 @@
-import { useCallback, useEffect, useMemo, useState } from 'react'
+import { useCallback, useMemo, useState } from 'react'
 import { Utensils } from 'lucide-react'
 import FeedbackMessage from '../components/FeedbackMessage'
 import PratoGrid from '../components/PratoGrid'
 import PratoModal from '../components/PratoModal'
 import SearchFilter from '../components/SearchFilter'
 import { useAppContext } from '../context/useAppContext'
-import { buscarPratos } from '../services/api'
 import type { CategoriaCardapio, Prato } from '../types'
 
 function normalizeText(value: string) {
@@ -13,28 +12,10 @@ function normalizeText(value: string) {
 }
 
 export default function Cardapio() {
-  const [pratos, setPratos] = useState<Prato[]>([])
+  const { pratos, pratosLoading, pratosError, favorites, toggleFavorite } = useAppContext()
   const [query, setQuery] = useState('')
   const [categoria, setCategoria] = useState<CategoriaCardapio | 'Todos'>('Todos')
   const [pratoAtivo, setPratoAtivo] = useState<Prato | null>(null)
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState('')
-  const { favorites, toggleFavorite } = useAppContext()
-
-  useEffect(() => {
-    let active = true
-    buscarPratos()
-      .then((data) => {
-        if (active) setPratos(data)
-      })
-      .catch(() => {
-        if (active) setError('Não foi possível carregar o cardápio. Atualize a página para tentar novamente.')
-      })
-      .finally(() => {
-        if (active) setLoading(false)
-      })
-    return () => { active = false }
-  }, [])
 
   const pratosFiltrados = useMemo(() => {
     const term = normalizeText(query.trim())
@@ -64,9 +45,9 @@ export default function Cardapio() {
           onCategoriaChange={setCategoria}
         />
         <p className="result-count" aria-live="polite">
-          {loading ? 'Carregando itens...' : `${pratosFiltrados.length} ${pratosFiltrados.length === 1 ? 'item encontrado' : 'itens encontrados'}`}
+          {pratosLoading ? 'Carregando itens...' : `${pratosFiltrados.length} ${pratosFiltrados.length === 1 ? 'item encontrado' : 'itens encontrados'}`}
         </p>
-        {error ? <FeedbackMessage message={error} kind="error" /> : loading ? (
+        {pratosError ? <FeedbackMessage message={pratosError} kind="error" /> : pratosLoading ? (
           <p className="loading-state" role="status">Buscando opções da nossa cozinha...</p>
         ) : (
           <PratoGrid

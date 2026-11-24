@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { ArrowRight, BookOpen, HeartHandshake } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import FeedbackMessage from '../components/FeedbackMessage'
@@ -6,30 +6,11 @@ import HeroBanner from '../components/HeroBanner'
 import PratoGrid from '../components/PratoGrid'
 import PratoModal from '../components/PratoModal'
 import { useAppContext } from '../context/useAppContext'
-import { buscarPratos } from '../services/api'
 import type { Prato } from '../types'
 
 export default function Home() {
-  const [pratos, setPratos] = useState<Prato[]>([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState('')
+  const { pratos, pratosLoading, pratosError, favorites, toggleFavorite } = useAppContext()
   const [pratoAtivo, setPratoAtivo] = useState<Prato | null>(null)
-  const { favorites, toggleFavorite } = useAppContext()
-
-  useEffect(() => {
-    let active = true
-    buscarPratos()
-      .then((data) => {
-        if (active) setPratos(data)
-      })
-      .catch(() => {
-        if (active) setError('Não foi possível carregar os pratos. Tente novamente mais tarde.')
-      })
-      .finally(() => {
-        if (active) setLoading(false)
-      })
-    return () => { active = false }
-  }, [])
 
   return (
     <>
@@ -42,7 +23,7 @@ export default function Home() {
           </div>
           <p>Conheça receitas caseiras que fazem parte da mesa piauiense, com ingredientes e modos de preparo para compartilhar.</p>
         </div>
-        {error ? <FeedbackMessage message={error} kind="error" /> : loading ? (
+        {pratosError ? <FeedbackMessage message={pratosError} kind="error" /> : pratosLoading ? (
           <p className="loading-state" role="status">Preparando nosso cardápio...</p>
         ) : (
           <PratoGrid
