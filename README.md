@@ -1,100 +1,123 @@
-# Sabor do Piauí
+# Cardapiaui — Frontend
 
-Aplicação web responsiva sobre a gastronomia caseira e tradicional do Piauí. O projeto apresenta receitas, ingredientes, modos de preparo e acompanhamentos em uma experiência acadêmica interativa.
+Aplicação web sobre a gastronomia caseira e tradicional do Piauí. Apresenta receitas, ingredientes, modos de preparo e acompanhamentos, com integração real a uma API REST e área administrativa protegida.
 
-## Visão geral
+🌐 **Demo:** [https://cardapiaui.netlify.app](https://cardapiaui.netlify.app)  
+🔗 **API:** [https://cardapio-api-8p32.onrender.com](https://cardapio-api-8p32.onrender.com)
 
-- Cinco páginas: início, cardápio, login demonstrativo, sobre o projeto e contato.
-- Busca por nome/descrição e filtro por categoria para pratos, bebidas, sobremesas e petiscos.
-- Favoritos e usuário compartilhados entre páginas por contexto React.
-- Modal com ingredientes, preparo caseiro e acompanhamentos.
-- Formulários com validação nativa e retorno visual.
-- Dados locais com atraso simulado para representar uma API REST.
-- Fotografias do cardápio com textos alternativos e créditos; a galinha caipira também aparece no banner da página inicial.
-
-O login, os favoritos e o envio de sugestões são demonstrações locais: não há autenticação, backend nem armazenamento persistente.
+---
 
 ## Tecnologias
 
-- React 19 e TypeScript com Vite.
-- Tailwind CSS v4 integrado ao Vite e estilos responsivos do projeto.
-- React Router para navegação.
-- Lucide React para ícones.
+- React 19 + TypeScript com Vite
+- Tailwind CSS v4
+- React Router v7
+- Lucide React
 
-## Instalação e execução
+---
 
-Requisitos: Node.js e npm.
+## Instalação e execução local
+
+Requisitos: Node.js 18+ e npm.
 
 ```bash
+# 1. Instale as dependências
 npm install
+
+# 2. Configure o ambiente
+echo "VITE_API_URL=http://localhost:3001" > .env
+
+# 3. Inicie o frontend
 npm run dev
 ```
 
-O Vite informará a URL local (normalmente `http://localhost:5173`).
+O Vite sobe em `http://localhost:5173`.
 
-Comandos adicionais:
+> Para funcionar localmente é necessário ter o backend rodando em `http://localhost:3001`.  
+> Repositório do backend: [https://github.com/saymoonmota/cardapio-api](https://github.com/saymoonmota/cardapio-api)
+
+Outros comandos:
 
 ```bash
-npm run build
-npm run lint
-npm run preview
+npm run build    # gera a pasta dist para deploy
+npm run lint     # verifica o código com oxlint
+npm run preview  # serve o build localmente
 ```
 
-## Deploy
+---
 
-O site está publicado na Netlify: [https://cardapiaui.netlify.app]
+## Variáveis de ambiente
 
-O deploy atual foi feito manualmente a partir da pasta `dist`; para publicar alterações futuras, execute `npm run build` e envie a pasta `dist` atualizada para o mesmo projeto na Netlify. O repositório ainda não está conectado para deploy automático.
+| Variável        | Descrição                  | Padrão                   |
+|-----------------|----------------------------|--------------------------|
+| `VITE_API_URL`  | URL base da API backend    | `http://localhost:3001`  |
+
+Em produção (Netlify), configure essa variável em **Site settings → Environment variables**.
+
+---
 
 ## Páginas
 
-| Caminho | Página | Conteúdo |
-| --- | --- | --- |
-| `/` | Início | Banner, pratos em destaque e chamada para o cardápio |
-| `/cardapio` | Cardápio | Busca, filtros, favoritos e modal de receitas |
-| `/login` | Login | Formulário demonstrativo de usuário |
-| `/sobre` | Sobre | Intenção de valorizar a culinária piauiense |
-| `/contato` | Contato | Sugestões de receitas com feedback |
+| Caminho         | Página       | Descrição                                              |
+|-----------------|--------------|--------------------------------------------------------|
+| `/`             | Início       | Banner com prato destaque e vitrine de receitas        |
+| `/cardapio`     | Cardápio     | Busca, filtros por categoria, favoritos e modal        |
+| `/login`        | Login        | Identificação do visitante para salvar favoritos       |
+| `/sobre`        | Sobre        | Proposta do projeto e valorização da culinária piauiense |
+| `/contato`      | Contato      | Formulário de sugestão de receitas (salvo na API)      |
+| `/admin/login`  | Admin Login  | Acesso restrito ao painel administrativo               |
+| `/admin`        | Dashboard    | Lista de sugestões recebidas (apenas admins)           |
 
-## Componentes e hooks
+---
 
-O projeto integra mais de 8 componentes funcionais reutilizáveis, incluindo `Navbar`, `Footer`, `HeroBanner`, `PratoCard`, `PratoGrid`, `PratoModal`, `SearchFilter`, `LoginForm`, `UserBadge`, `ContactForm` e `FeedbackMessage`. `TeamMemberCard` também está implementado, mas não é exibido nas páginas.
+## Área administrativa
 
-Hooks utilizados: `useState`, `useEffect`, `useContext` (por meio do hook `useAppContext`), `useMemo` e `useRef`. Os dados são lidos do JSON local e carregados de forma assíncrona com atraso simulado; não há integração com uma API externa.
+Acesse `/admin/login` com as credenciais de administrador configuradas no backend.
+
+Funcionalidades:
+- Lista paginada de sugestões enviadas pelo formulário de contato
+- Filtro por mensagens não lidas
+- Marcar mensagens como lidas/não lidas
+- Modal com detalhe completo de cada sugestão
+- Sessão persistida no `localStorage` com validação automática do token JWT
+
+---
 
 ## Estrutura de pastas
 
-```text
+```
 src/
-├── components/       # Navbar, Footer, formulários, cards e modal reutilizáveis
-├── context/          # Contexto de usuário e favoritos
-├── data/             # Mock local dos pratos em JSON
-├── pages/            # Páginas associadas às rotas
-├── services/         # Simulação assíncrona da API de pratos
+├── components/       # Navbar, Footer, cards, modal, formulários, PrivateRoute
+├── context/          # AppContext — pratos, usuário, admin, favoritos
+├── pages/            # Home, Cardapio, Login, Sobre, Contato, AdminLogin, AdminDashboard
+├── services/         # api.ts — fetch para pratos, contatos e auth
 ├── types/            # Interfaces e tipos compartilhados
-├── App.tsx           # Layout e definição das rotas
-├── App.css           # Componentes e estilos responsivos
+├── App.tsx           # Rotas e layout geral
+├── App.css           # Estilos dos componentes
 ├── index.css         # Estilos globais e tema Tailwind
-└── main.tsx          # Inicialização React e BrowserRouter
+└── main.tsx          # Ponto de entrada React
 ```
 
-## Itens do cardápio
+---
 
-- **Pratos:** Galinha Caipira, Panelada Piauiense, Carne de Bode, Carne de Sol, Piau Frito e Sarapatel.
-- **Bebidas:** Cajuína Piauiense.
-- **Sobremesas:** Doce de Buriti e Doce de Caju.
-- **Petiscos:** Castanha Assada.
+## Cardápio
 
-O cardápio contém 10 itens. Tempos, descrições, ingredientes, acompanhamentos e modos de preparo estão em `src/data/pratos.json`.
+| Categoria    | Pratos                                          |
+|--------------|-------------------------------------------------|
+| Aves         | Galinha Caipira                                 |
+| Carnes       | Panelada Piauiense, Carne de Bode, Carne de Sol, Sarapatel |
+| Peixes       | Piau Frito                                      |
+| Bebidas      | Cajuína Piauiense                               |
+| Sobremesas   | Doce de Buriti, Doce de Caju                    |
+| Petiscos     | Castanha Assada                                 |
 
-## Integrantes e componentes
+---
 
-Preencha com os nomes reais e os dois componentes que cada integrante desenvolveu e apresentará. Duplique a linha conforme o número de integrantes (máximo de seis).
+## Deploy (Netlify)
 
-| Integrante | Componente 1 | Componente 2 |
-| --- | --- | --- |
-| [Nome do integrante] | [Componente desenvolvido] | [Componente desenvolvido] |
+O repositório está conectado à Netlify com deploy automático a cada push na branch `main`.
 
-## Capturas das telas principais
-
-As capturas de tela ainda precisam ser adicionadas ao repositório antes da entrega. Inclua imagens das telas principais nesta seção, por exemplo: início, cardápio, sobre, login e contato.
+Configuração em `netlify.toml`:
+- **Build command:** `npm run build`
+- **Publish directory:** `dist`
+- **Redirects:** todas as rotas apontam para `index.html` (necessário para o React Router)
