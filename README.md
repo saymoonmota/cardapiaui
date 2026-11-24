@@ -100,15 +100,40 @@ src/
 
 ---
 
+## 🖼️ Prints das Telas
+
+### Página Inicial (Home)
+![Home](apresentacao_banca/prints/home.png)
+
+### Cardápio
+![Cardápio](apresentacao_banca/prints/cardapio.png)
+
+### Modal de Prato
+![Modal](apresentacao_banca/prints/modal.png)
+
+### Login
+![Login](apresentacao_banca/prints/login.png)
+
+### Sobre
+![Sobre](apresentacao_banca/prints/sobre.png)
+
+### Contato
+![Contato](apresentacao_banca/prints/contato.png)
+
+### Painel Administrativo
+![Admin](apresentacao_banca/prints/admin.png)
+
+---
+
 ## Integrantes e componentes
 
 | Integrante | Componente 1 | Componente 2 |
 |---|---|---|
 | Saymoon Wanderson Sousa Mota | `AppContext` | `AdminDashboard` |
 | Francisco Vitor Santos Lima | `Navbar` | `PratoModal` |
-| AJ Barros | `ContactForm` | `PratoCard` |
+| Antonio Jose Barros Silva Filho | `ContactForm` | `PratoCard` |
 | Marcos Aurelio | `LoginForm` | `SearchFilter` |
-| Mario | `HeroBanner` | `PratoGrid` |
+| Mayson de Tacio | `HeroBanner` | `PratoGrid` |
 
 | Categoria    | Pratos                                          |
 |--------------|-------------------------------------------------|
