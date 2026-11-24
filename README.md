@@ -100,7 +100,15 @@ src/
 
 ---
 
-## Cardápio
+## Integrantes e componentes
+
+| Integrante | Componente 1 | Componente 2 |
+|---|---|---|
+| Saymoon Wanderson Sousa Mota | `AppContext` | `AdminDashboard` |
+| Francisco Vitor Santos Lima | `Navbar` | `PratoModal` |
+| AJ Barros | `ContactForm` | `PratoCard` |
+| Marcos Aurelio | `LoginForm` | `SearchFilter` |
+| Mario | `HeroBanner` | `PratoGrid` |
 
 | Categoria    | Pratos                                          |
 |--------------|-------------------------------------------------|
